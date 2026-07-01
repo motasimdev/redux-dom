@@ -73,8 +73,8 @@ function Home() {
                           <button className="py-1 px-4 mt-2 bg-purple-900 text-purple-300 rounded-xl text-sm cursor-pointer hover:bg-purple-300 hover:text-purple-900 transition duration-300">
                             Add to cart
                           </button>
-                          <button className="py-1 px-4 mt-2 bg-purple-900 text-purple-300 rounded-xl text-sm cursor-pointer hover:bg-purple-300 hover:text-purple-900 transition duration-300">
-                            Compare
+                          <button className="py-1 px-4 mt-2 bg-purple-900 text-purple-300 rounded-xl text-sm cursor-pointer hover:bg-purple-100 hover:text-purple-900 transition duration-300">
+                            View Details
                           </button>
                         </div>
                       </div>
