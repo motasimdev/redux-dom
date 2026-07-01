@@ -4,11 +4,25 @@ import BorderGlow from "../BorderGlow";
 import SpotlightCard from "../SpotlightCard";
 
 import calligh from "/src/assets/calligh.jpg";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function Home() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://dummyjson.com/products")
+      .then((response) => {
+        setProducts(response.data.products);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
   return (
     <>
-      <section className="relative bg-purple-900 min-h-screen overflow-hidden">
+      <section className="relative bg-purple-900 overflow-hidden">
         <div className="absolute inset-0 z-0 w-full h-full pointer-events-none">
           <DotField
             dotRadius={3.5}
@@ -26,34 +40,45 @@ function Home() {
           />
         </div>
         <div className="max-w-315 mx-auto px-3 z-10">
-          <div className="flex justify-between items-center mt-20 ">
-            <div className="">
-              <BorderGlow
-                edgeSensitivity={19}
-                glowColor="40 80 80"
-                backgroundColor="#B331F1"
-                borderRadius={23}
-                glowRadius={48}
-                glowIntensity={1}
-                coneSpread={23}
-                animated
-                colors={["#c084fc", "#f472b6", "#38bdf8"]}
-              >
-                <SpotlightCard
-                  className="custom-spotlight-card bg-purple-500"
-                  spotlightColor="rgba(255, 255, 255, 0.25)"
-                >
-                  <div>
-                    <div className="h-70 w-70">
-                      <img src={calligh} alt={calligh} className="w-full h-full overflow-hidden"/>
-                    </div>
-                    <h4 className="text-lg font-medium pt-5">Your Content Here</h4>
-                    <p className="">Hover near the edges to see the glow.</p>
-                    
-                  </div>
-                </SpotlightCard>
-              </BorderGlow>
-            </div>
+          <div className="flex justify-between items-center flex-wrap gap-y-2 px-8">
+            {products.map((item) => (
+              <div className="mt-20 ">
+                <div className="w-80">
+                  <BorderGlow
+                    edgeSensitivity={19}
+                    glowColor="40 80 80"
+                    backgroundColor="#B331F1"
+                    borderRadius={23}
+                    glowRadius={48}
+                    glowIntensity={1}
+                    coneSpread={23}
+                    animated
+                    colors={["#c084fc", "#f472b6", "#38bdf8"]}
+                  >
+                    <SpotlightCard
+                      className="custom-spotlight-card bg-purple-500"
+                      spotlightColor="rgba(255, 255, 255, 0.25)"
+                    >
+                      <div key={item.id} className="">
+                        <div className="h-70 w-70">
+                          <img
+                            src={item.thumbnail}
+                            alt={item.thumbnail}
+                            className="w-full h-full overflow-hidden rounded-2xl"
+                          />
+                        </div>
+                        <h4 className="text-lg font-medium pt-5">
+                          Your Content Here
+                        </h4>
+                        <p className="">
+                          Hover near the edges to see the glow.
+                        </p>
+                      </div>
+                    </SpotlightCard>
+                  </BorderGlow>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -24,7 +24,7 @@ const Header = () => {
           />
         </div>
         <div className="max-w-315 mx-auto px-3 z-10">
-          <div className="py-2.5 px-5 mt-5 rounded-2xl glassBg">
+          <div className="py-2.5 px-5 my-5 rounded-2xl glassBg">
             <div className="flex justify-between">
               <div className="text-xl font-semibold text-purple-200">
                 <p>MotaBazarr</p>
