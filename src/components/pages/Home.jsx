@@ -4,8 +4,9 @@ import SpotlightCard from "../SpotlightCard";
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 
-function Home() {
+const Home = ({ id }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -73,9 +74,11 @@ function Home() {
                           <button className="py-1 px-4 mt-2 bg-purple-900 text-purple-300 rounded-xl text-sm cursor-pointer hover:bg-purple-300 hover:text-purple-900 transition duration-300">
                             Add to cart
                           </button>
-                          <button className="py-1 px-4 mt-2 bg-purple-900 text-purple-300 rounded-xl text-sm cursor-pointer hover:bg-purple-100 hover:text-purple-900 transition duration-300">
-                            View Details
-                          </button>
+                          <Link to={`/product/${item.id}`}>
+                            <button className="py-1 px-4 mt-2 bg-purple-900 text-purple-300 rounded-xl text-sm cursor-pointer hover:bg-purple-100 hover:text-purple-900 transition duration-300">
+                              View Details
+                            </button>
+                          </Link>
                         </div>
                       </div>
                     </SpotlightCard>
@@ -88,6 +91,6 @@ function Home() {
       </section>
     </>
   );
-}
+};
 
 export default Home;

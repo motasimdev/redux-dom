@@ -1,4 +1,5 @@
 import Home from "@/components/pages/Home";
+import ProductDetails from "@/components/pages/ProductDetails";
 import Shop from "@/components/pages/Shop";
 import Root from "@/components/Root";
 import React from "react";
@@ -11,7 +12,7 @@ const Routes = createBrowserRouter([
     children: [
       { index: true, Component: Home }, //import Home.jsx
       { path: "shop", Component: Shop },
-      //{ path: "shop", Component: Shop },
+      { path: "product/:id", Component: ProductDetails }, 
       //{ path: "blog", Component: Blog },
       //{ path: "contact", Component: Contact },
     ],
