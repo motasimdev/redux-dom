@@ -1,4 +1,3 @@
-
 import DotField from "../DotField";
 import BorderGlow from "../BorderGlow";
 import SpotlightCard from "../SpotlightCard";
@@ -69,9 +68,15 @@ function Home() {
                         <h4 className="text-lg font-medium pt-5">
                           {item.title}
                         </h4>
-                        <p className="line-clamp-3">
-                         {item.description}
-                        </p>
+                        <p className="line-clamp-3">{item.description}</p>
+                        <div className="flex items-center justify-between">
+                          <button className="py-1 px-4 mt-2 bg-purple-900 text-purple-300 rounded-xl text-sm cursor-pointer hover:bg-purple-300 hover:text-purple-900 transition duration-300">
+                            Add to cart
+                          </button>
+                          <button className="py-1 px-4 mt-2 bg-purple-900 text-purple-300 rounded-xl text-sm cursor-pointer hover:bg-purple-300 hover:text-purple-900 transition duration-300">
+                            Compare
+                          </button>
+                        </div>
                       </div>
                     </SpotlightCard>
                   </BorderGlow>
