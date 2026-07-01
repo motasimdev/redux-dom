@@ -1,9 +1,8 @@
-import { Link } from "react-router";
+
 import DotField from "../DotField";
 import BorderGlow from "../BorderGlow";
 import SpotlightCard from "../SpotlightCard";
 
-import calligh from "/src/assets/calligh.jpg";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -68,10 +67,10 @@ function Home() {
                           />
                         </div>
                         <h4 className="text-lg font-medium pt-5">
-                          Your Content Here
+                          {item.title}
                         </h4>
-                        <p className="">
-                          Hover near the edges to see the glow.
+                        <p className="line-clamp-3">
+                         {item.description}
                         </p>
                       </div>
                     </SpotlightCard>
