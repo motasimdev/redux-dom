@@ -26,9 +26,11 @@ const ProductDetails = () => {
             </div>
             <div className="w-[50%]">
               <p className="font-semibold text-2xl">{product.title}</p>
-              <p className="font-medium text-xl pt-8">{product.description}</p>
-              <div className="">rating-{product.rating}</div>
               <div className="font-bold">${product.price}</div>
+              <p className="font-medium text-xl pt-8">{product.description}</p>
+              <div className="font-medium mt-4">Category: {product.category}</div>
+              <div className="font-medium">Brand: {product.brand}</div>
+              <div className="font-medium">Rating: {product.rating}</div>
             </div>
           </div>
         </div>

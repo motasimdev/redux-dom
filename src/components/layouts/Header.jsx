@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router";
 import DotField from "../DotField";
 import { ShoppingBag } from "lucide-react";
@@ -40,9 +40,12 @@ const Header = () => {
                   <li className="text-purple-300">Contact</li>
                 </Link>
               </ul>
-              <div className="">
+              <div className="relative">
                 <Link>
-                  <ShoppingBag className="text-purple-300" />
+                  <ShoppingBag className="text-purple-300 " />
+                  <div className="absolute size-4 bg-purple-300 rounded-full bottom-0 right-0 text-[12px] font-medium text-purple-800 flex items-center justify-center">
+                    
+                  </div>
                 </Link>
               </div>
             </div>
