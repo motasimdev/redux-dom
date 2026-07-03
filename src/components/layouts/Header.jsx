@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router";
 import DotField from "../DotField";
 import { ShoppingBag } from "lucide-react";
+import { useContext } from "react";
+import CartContext from "@/context/CartContext";
 
 const Header = () => {
+  const { cartItems } = useContext(CartContext);
   return (
     <>
       <section className="relative bg-purple-900 overflow-hidden">
@@ -43,9 +46,7 @@ const Header = () => {
               <div className="relative">
                 <Link>
                   <ShoppingBag className="text-purple-300 " />
-                  <div className="absolute size-4 bg-purple-300 rounded-full bottom-0 right-0 text-[12px] font-medium text-purple-800 flex items-center justify-center">
-                    
-                  </div>
+                  <div className="absolute size-4 bg-purple-300 rounded-full bottom-0 right-0 text-[12px] font-medium text-purple-800 flex items-center justify-center">{cartItems}</div>
                 </Link>
               </div>
             </div>

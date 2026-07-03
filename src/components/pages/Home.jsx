@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router";
 
 const Home = ({ id }) => {
+
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
