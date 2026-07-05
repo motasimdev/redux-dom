@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState } from "react";
 
 // ১. বয়ামটা তৈরি করলাম
 const CartContext = createContext();
@@ -37,8 +37,12 @@ const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
+
+  const addToCart = (product)=>{
+    setCartItems((prevItems)=>[...prevItems, product])
+  }
   return (
-    <CartContext.Provider value={{ cartItems }}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{ cartItems, addToCart }}>{children}</CartContext.Provider>
   );
 };
 export default CartContext;

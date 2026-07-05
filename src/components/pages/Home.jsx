@@ -3,11 +3,12 @@ import BorderGlow from "../BorderGlow";
 import SpotlightCard from "../SpotlightCard";
 
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router";
+import CartContext from "@/context/CartContext";
 
 const Home = ({ id }) => {
-
+  const { addToCart } = useContext(CartContext);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -42,7 +43,7 @@ const Home = ({ id }) => {
         <div className="max-w-315 mx-auto px-3 z-10">
           <div className="flex justify-between items-center flex-wrap gap-y-2 px-8">
             {products.map((item) => (
-              <div className="mt-20 ">
+              <div key={item.id} className="mt-20 ">
                 <div className="w-80">
                   <BorderGlow
                     edgeSensitivity={19}
@@ -59,7 +60,7 @@ const Home = ({ id }) => {
                       className="custom-spotlight-card bg-purple-500"
                       spotlightColor="rgba(255, 255, 255, 0.25)"
                     >
-                      <div key={item.id} className="">
+                      <div className="">
                         <div className="h-70 w-70">
                           <img
                             src={item.thumbnail}
@@ -72,7 +73,7 @@ const Home = ({ id }) => {
                         </h4>
                         <p className="line-clamp-3">{item.description}</p>
                         <div className="flex items-center justify-between">
-                          <button className="py-1 px-4 mt-2 bg-purple-900 text-purple-300 rounded-xl text-sm cursor-pointer hover:bg-purple-300 hover:text-purple-900 transition duration-300">
+                          <button className="py-1 px-4 mt-2 bg-purple-900 text-purple-300 rounded-xl text-sm cursor-pointer hover:bg-purple-300 hover:text-purple-900 transition duration-300" onClick={()=> addToCart(item)}>
                             Add to cart
                           </button>
                           <Link to={`/product/${item.id}`}>

@@ -46,7 +46,7 @@ const Header = () => {
               <div className="relative">
                 <Link>
                   <ShoppingBag className="text-purple-300 " />
-                  <div className="absolute size-4 bg-purple-300 rounded-full bottom-0 right-0 text-[12px] font-medium text-purple-800 flex items-center justify-center">{cartItems}</div>
+                  <div className="absolute size-4 bg-purple-300 rounded-full bottom-0 right-0 text-[12px] font-medium text-purple-800 flex items-center justify-center">{cartItems.length}</div>
                 </Link>
               </div>
             </div>
