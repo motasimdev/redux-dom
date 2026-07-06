@@ -41,6 +41,7 @@ export const CartProvider = ({ children }) => {
   const addToCart = (product)=>{
     setCartItems((prevItems)=>[...prevItems, product])
   }
+  console.log(cartItems)
   return (
     <CartContext.Provider value={{ cartItems, addToCart }}>{children}</CartContext.Provider>
   );

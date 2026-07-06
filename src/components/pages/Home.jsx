@@ -73,7 +73,10 @@ const Home = ({ id }) => {
                         </h4>
                         <p className="line-clamp-3">{item.description}</p>
                         <div className="flex items-center justify-between">
-                          <button className="py-1 px-4 mt-2 bg-purple-900 text-purple-300 rounded-xl text-sm cursor-pointer hover:bg-purple-300 hover:text-purple-900 transition duration-300" onClick={()=> addToCart(item)}>
+                          <button
+                            className="py-1 px-4 mt-2 bg-purple-900 text-purple-300 rounded-xl text-sm cursor-pointer hover:bg-purple-300 hover:text-purple-900 transition duration-300"
+                            onClick={() => addToCart(item)}
+                          >
                             Add to cart
                           </button>
                           <Link to={`/product/${item.id}`}>
