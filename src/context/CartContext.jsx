@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 
-// ১. বয়ামটা তৈরি করলাম
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
@@ -8,7 +7,6 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (product) => {
     const existingProduct = cartItems.find((item) => item.id === product.id);
-    console.log(cartItems);
     if (!existingProduct) {
       setCartItems((prevItems) => [
         ...prevItems,
@@ -21,15 +19,18 @@ export const CartProvider = ({ children }) => {
       setCartItems((prevItems) =>
         prevItems.map((item) => {
           if (item.id === product.id) {
-            return {
-              ...item,
-              quantity: item.quantity + 1,
-            };
+            // return {
+            //   ...item,
+            //   quantity: item.quantity + 1,
+            // };
+            item.quantity++;
+            return item;
           }
           return item;
         }),
       );
     }
+    console.log(cartItems);
   };
   return (
     <CartContext.Provider value={{ cartItems, addToCart }}>

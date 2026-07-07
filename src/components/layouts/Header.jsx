@@ -4,6 +4,7 @@ import DotField from "../DotField";
 import { ShoppingBag, X } from "lucide-react";
 import { useContext } from "react";
 import CartContext from "@/context/CartContext";
+import SideCart from "./SideCart";
 
 const Header = () => {
   const [cartTgl, setCartTgl] = useState(false);
@@ -33,7 +34,7 @@ const Header = () => {
               {/* cross btn */}
 
               <div className="mt-3 ">
-                
+                <SideCart/>
               </div>
             </div>
           </>
